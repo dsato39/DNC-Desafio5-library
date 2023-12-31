@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const app = express()
 const livroModel = require('./src/model/livro')
 const cors = require('cors')
@@ -22,6 +23,16 @@ app.post('/livros/cadastro', async (req, res) => {
   return res.status(200).json({
     data: response
   })
+})
+
+app.get('/livros/edicao/:id', async (req, res) => {
+  const livro = await livroModel.findOne({ id: req.params.id})
+  return res.status(200).json(livro)
+})
+
+app.put('/livros/edicao/:id', async (req, res) => {
+  const livro = await livroModel.updateOne({ id: req.params.id }, req.body)
+  return res.status(200).json(livro)
 })
 
 app.listen(8080, () => {
