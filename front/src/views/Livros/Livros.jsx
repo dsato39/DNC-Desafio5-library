@@ -19,11 +19,11 @@ const Livros = () => {
     if(valida){
       await LivrosService.deleteLivro(livroId)
       .then(({data}) => {
-        alert(data.mensagem)
+        alert(data.mensage)
         getLivros()
       })
       .catch(({response:{data,status}})=>{
-        alert(`${status} - ${data.mensagem}`)      
+        alert(`${status} - ${data.mensage}`)      
       });
     }
   }
