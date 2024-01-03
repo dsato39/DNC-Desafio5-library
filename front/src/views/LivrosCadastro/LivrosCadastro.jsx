@@ -19,7 +19,7 @@ const LivrosCadastro = () => {
       if(livro.id!=undefined && livro.id!='' && livro.titulo!=undefined && livro.titulo!='' && livro.num_paginas!=undefined && livro.num_paginas!='' && livro.isbn !=undefined && livro.isbn !='' && livro.editora !=undefined && livro.editora !=''){
       await LivrosService.createLivro(body)
       .then((response)=>{
-        alert(response.data)
+        alert('Livro cadastrado com sucesso!')
         document.getElementById('formulario').reset
       })
       .catch(({response:{data,status}})=>{
