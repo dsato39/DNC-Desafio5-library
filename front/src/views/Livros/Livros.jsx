@@ -19,7 +19,7 @@ const Livros = () => {
     if(valida){
       await LivrosService.deleteLivro(livroId)
       .then(({data}) => {
-        alert('Livro excluído com sucesso!')
+        alert('Livro deletado com sucesso!')
         getLivros()
       })
       .catch(({response:{data,status}})=>{
